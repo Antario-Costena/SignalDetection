@@ -5,9 +5,13 @@ In this project, we present a supervised method of **detecting trafﬁc-signs** 
 After loading the project [folder](https://drive.google.com/drive/folders/1H-IzMKJYn5LyHmEnwfml5stm814YWUBL?usp=sharing) on the drive, we have created a new Google Colaboratory session for training the neural network.
 * in Colaboratory file, need to change the runtime type: from *Runtime* menu select *Change runtime* type and choose **GPU** as Hardware accelerator.
 
-## * Configuration
-> We're living the future so
-> the present is our past.
+## 1 Configuration
+In this section we will proceed to configure our Darknet network.
+We will proceed to mount Google Drive on the Colab session
+> from google.colab import drive print(**"mounting DRIVE...**")
+> drive.mount(**'/content/gdrive'**)
+> !ln -s /content/gdrive/My\ Drive/*root_folder*/my_drive
+
 
 
 
