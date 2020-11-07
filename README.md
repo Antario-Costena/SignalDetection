@@ -8,12 +8,12 @@ After loading the project **folder** on the drive, we have created a new Google 
 ## `Step 1. Configuration`
 In this section we will proceed to configure our Darknet network.
 We will proceed to mount Google Drive on the Colab session.
-**```
+```
 from google.colab import drive
 print("mounting DRIVE...")
 drive.mount('/content/gdrive')
 !ln -s /content/gdrive/My\ Drive/root_folder/my_drive
-```**
+```
 Now we will proceed to clone the [repository](https://github.com/AlexeyAB/darknet) , we're going to set some configuration parameters such as:
 - [x] **OPENCV** to build with OpenCV;
 - [x] **GPU** to build with CUDA to accelerate by using GPU;
