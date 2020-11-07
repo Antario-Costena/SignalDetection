@@ -113,7 +113,7 @@ print("loading script...")
 print("performing script..")
 !python generate_train.py
 ```
-For training, you need to download the pre trained weights (**yolov4.conv.137**) are used to speed up the workout. The approach is to use pre-trained layers to build a different network which may have similarities in the first layers.
+For training, you need to download the pre trained weights ([yolov4.conv.137](https://github.com/AlexeyAB/darknet/releases/download/darknet_yolo_v3_optimal/yolov4.conv.137)) are used to speed up the workout. The approach is to use pre-trained layers to build a different network which may have similarities in the first layers.
 This file must be uploaded to the [backup](https://drive.google.com/drive/folders/1x5fjHc3ngHuQpX9UIx7jDftEnzZhTLFZ) folder.
 ```
 print("loading pre_trained weights...")
