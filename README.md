@@ -44,6 +44,7 @@ print("making...")
 ```
 To proceed we will load the dataset in order to use it for training.
 
+
 The idea is to insert in a folder called *obj.zip* all the *images .jpg* with the relative *files.txt* and then compress the folder. This folder must be in the folder [dataset](https://github.com/Antario-Costena/SignalDetection/tree/Project/dataset).
 ```
 print("loading dataset...)
