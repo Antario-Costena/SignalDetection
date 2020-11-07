@@ -1,0 +1,14 @@
+Intersection
+Give Way
+Right of Way
+No Thoroughfare
+No Overtaking
+No Entry
+Obligation Straight-Turn Right
+Car Park
+Pedestrian Path
+Stop
+Crosswalk
+Green Light
+Yellow Light
+Red Light
