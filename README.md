@@ -144,6 +144,9 @@ print("detecting...")
 print("save prediction in Drive...")
 !cp prediction.avi /my_drive/predictions/name_prediction
 ```
+## Dataset
+
+The dataset consists of approximately 4780 images and 4780 corresponding .txt files.
 
 |             Class              |    n°Images   |
 | -------------------------------| ------------- |
