@@ -1,0 +1,1 @@
+Folder where to put images for detection

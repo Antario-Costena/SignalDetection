@@ -1,0 +1,1 @@
+Folder where to put videos for detection

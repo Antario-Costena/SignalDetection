@@ -1,0 +1,1 @@
+Folder where videos and images are saved after detection

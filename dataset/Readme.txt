@@ -1,0 +1,1 @@
+Folder to load the "obj.zip" file containing the images (.JPG) and .txt for network training
