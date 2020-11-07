@@ -60,8 +60,39 @@ print("unziping dataset...")
 It is important to also load the main **yolo-obj.cfg** configuration file, which will contain information for the construction of the network, such as the size of the images, the number of classes, filters, any augmentation techniques and more.
 The file is located in the folder [configuration_files](https://drive.google.com/drive/folders/1am7pzlCU4InMfw1gq9Rasv_S0si_wTuQ).
 
+The main changes that have been made are shown below:
+- change line batch to `batch=64`
+- change line subdivisions to `subdivisions=16`
+- change line max_batches to (`classes*2000` but not less than number of training images, but not less than number of training images and not less than 6000): `max_batches=28000`
+- change line steps to 80% and 90% of max_batches: `steps=22400,25200`
+- set network size `width=416` `height=416` or any value multiple of 32:
+- change line classes=14 to your number of objects in each of **3 [yolo]-layers**:
+- change `filters=57` to *filters=(classes + 5) x 3* in the **3 [convolutional]** before each [yolo] layer, keep in mind that it only has to be the last [convolutional] before each of the [yolo] layers.
 
+Darknet needs two more files:
+1. **obj.names**, which contains the name of the classes.
+  The file must be similar to the one generated during the dataset preparation phase. 
+  So it is important to respect the order of the classes..
 
+  ```
+  class 0
+  class 1
+  class 2
+  class 3
+  class 4
+  ...
+
+  ```
+2. **obj.data**, which contain information about training and number of classes.
+  
+  ```
+  classes = number of classes
+  train = path_to/train.txt
+  valid = path_to/test.txt
+  names = path_to/obj.names
+  backup = path_to/backup_folder
+
+  ```
 
 
 
