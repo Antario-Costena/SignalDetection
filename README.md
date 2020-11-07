@@ -5,7 +5,7 @@ In this project, we present a supervised method of **detecting trafﬁc-signs** 
 After loading the project [folder](https://drive.google.com/drive/folders/1H-IzMKJYn5LyHmEnwfml5stm814YWUBL?usp=sharing) on the drive, we have created a new Google Colaboratory session for training the neural network.
 * in Colaboratory file, need to change the runtime type: from *Runtime* menu select *Change runtime* type and choose **GPU** as Hardware accelerator.
 
-`## Step 1. Configuration`
+## `Step 1. Configuration`
 In this section we will proceed to configure our Darknet network.
 We will proceed to mount Google Drive on the Colab session.
 ```
@@ -121,7 +121,7 @@ print("loading pre_trained weights...")
 ```
 Once the configuration phase is complete, it is possible to lead to the training phase.
 
-## Step 2. Training
+## `Step 2. Training`
 
 In this section, we will start training the network using the command line:
 ```
@@ -134,7 +134,7 @@ It is also possible to stop the training at a point (for example after 2000 iter
 ```
 !./darknet detector train data/obj.data cfg/yolo-obj.cfg /my_drive/backup/yolo-obj_last.weights -dont_show
 ```
-## Step 3. Detection
+## `Step 3. Detection`
 
 When the training is complete, we will perform object detection on the videos and save the results on the Drive:
 
