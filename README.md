@@ -8,10 +8,6 @@ After loading the project **folder** on the drive, we have created a new Google 
 ## `Step 1. Configuration`
 In this section we will proceed to configure our Darknet network.
 We will proceed to mount Google Drive on the Colab session.
-
-> Dorothy followed her through many of the beautiful rooms in her castle.
->
-> The Witch bade her clean the pots and kettles and sweep the floor and keep the fire fed with wood.
 ```
 from google.colab import drive
 print("mounting DRIVE...")
