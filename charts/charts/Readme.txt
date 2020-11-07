@@ -1,0 +1,1 @@
+Folder where the graphs with the trend of the loss are saved
