@@ -44,7 +44,7 @@ print("making...")
 ```
 To proceed we will load the dataset in order to use it for training.
 
-The idea is to insert in a folder called [obj](https://drive.google.com/drive/folders/1ZY3pJzgI33PpNdYZf1PQI1k_dgzRnprW) all the *images .jpg* with the relative *files.txt* and then compress the folder.
+The idea is to insert in a folder called *obj.zip* all the *images .jpg* with the relative *files.txt* and then compress the folder. This folder must be in the folder [dataset](https://github.com/Antario-Costena/SignalDetection/tree/Project/dataset).
 ```
 print("loading dataset...)
 !cp /my_drive/dataset_folder/obj.zip ../
@@ -55,7 +55,7 @@ print("unziping dataset...")
 !unzip ../obj.zip -d data/obj.zip ../
 ```
 It is important to also load the main **yolo-obj.cfg** configuration file, which will contain information for the construction of the network, such as the size of the images, the number of classes, filters, any augmentation techniques and more.
-The file is located in the folder [configuration_files](https://drive.google.com/drive/folders/1am7pzlCU4InMfw1gq9Rasv_S0si_wTuQ).
+The file is located in the folder [configuration_files](https://github.com/Antario-Costena/SignalDetection/tree/Project/configuration_files).
 
 The main changes that have been made are shown below:
 - change line batch to `batch=64`
@@ -105,7 +105,7 @@ data/obj/img2.jpg
 data/obj/img3.jpg
 ...
 ```
-Regarding this, we have defined a Python script that does it: [generate_train.py](https://drive.google.com/file/d/18_EIV33LjGrhrBj1HcoSrKxZbYAil-5z/view).
+Regarding this, we have defined a Python script that does it: [generate_train.py](https://github.com/Antario-Costena/SignalDetection/blob/Project/py_scripts/generate_train.py).
 It is sufficient, therefore, to load it inside the current folder and execute it, as shown below:
 ```
 print("loading script...")
@@ -114,7 +114,7 @@ print("performing script..")
 !python generate_train.py
 ```
 For training, you need to download the pre trained weights ([yolov4.conv.137](https://github.com/AlexeyAB/darknet/releases/download/darknet_yolo_v3_optimal/yolov4.conv.137)) are used to speed up the workout. The approach is to use pre-trained layers to build a different network which may have similarities in the first layers.
-This file must be uploaded to the [backup](https://drive.google.com/drive/folders/1x5fjHc3ngHuQpX9UIx7jDftEnzZhTLFZ) folder.
+This file must be uploaded to the [backup](https://github.com/Antario-Costena/SignalDetection/tree/Project/backup) folder.
 ```
 print("loading pre_trained weights...")
 !cp /my_drive/backup/yolov4.conv.137 ./
@@ -144,3 +144,4 @@ print("detecting...")
 print("save prediction in Drive...")
 !cp prediction.avi /my_drive/predictions/name_prediction
 ```
+All the code is available in the jupyter notebook **YOLODarknet_code.ipynb**.
