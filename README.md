@@ -141,7 +141,7 @@ chart_name = "mAP-chart_iter:{}-{}.png".format(initial_iteration_number, final_i
 
 print("saving chart...")
 
-!cp chart.png /my_drive/charts/$chart_name
+!cp chart.png /my_drive/charts/chart_name
 ```
 ## `Step 3. Detection`
 
