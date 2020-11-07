@@ -145,6 +145,38 @@ print("save prediction in Drive...")
 !cp prediction.avi /my_drive/predictions/name_prediction
 ```
 
+|             Class              |    n°Images   |
+| -------------------------------| ------------- |
+| Intersection                   | 	    260      |
+| Give Way                       |      270      |
+| Right of Way                   |      260      |
+| No Thoroughfare                |      280      |
+| No Overtaking                  |      270      |
+| No Entry                       |      270      |
+| Obligation Straight-Turn Right |      300      |
+| Car Park                       |      540      |
+| Pedestrian Path                |      290      |
+| Stop                           |      290      |
+| Crosswalk                      |      330      |
+| Green Light                    |      530      |
+| Yellow Light                   |      320      |
+| Red Light                      |      570      |
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
