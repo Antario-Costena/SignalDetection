@@ -10,10 +10,19 @@ In this section we will proceed to configure our Darknet network.
 We will proceed to mount Google Drive on the Colab session.
 ```
 from google.colab import drive
-print("**mounting DRIVE...**")
+print("mounting DRIVE...")
 drive.mount('/content/gdrive')
 !ln -s /content/gdrive/My\ Drive/root_folder/my_drive
 ```
+Now we will proceed to clone the [repository](https://github.com/AlexeyAB/darknet) , we're going to set some configuration parameters such as:
+- [x] **OPENCV** to build with OpenCV;
+- [x] **GPU** to build with CUDA to accelerate by using GPU;
+- [x] **CUDNN** to build with cuDNN v5-v7 to accelerate training by using GPU;
+- [x] **CUDNN_HALF** to speedup Detection 3x, Training 2x;
+
+The next step is the compile.
+
+
 
 
 
