@@ -105,7 +105,7 @@ data/obj/img2.jpg
 data/obj/img3.jpg
 ...
 ```
-Regarding this, we have defined a Python script that does it: [generate_train.py](https://drive.google.com/file/d/18_EIV33LjGrhrBj1HcoSrKxZbYAil-5z/view)
+Regarding this, we have defined a Python script that does it: [generate_train.py](https://drive.google.com/file/d/18_EIV33LjGrhrBj1HcoSrKxZbYAil-5z/view).
 It is sufficient, therefore, to load it inside the current folder and execute it, as shown below:
 ```
 print("loading script...")
@@ -122,6 +122,29 @@ print("loading pre_trained weights...")
 Once the configuration phase is complete, it is possible to lead to the training phase.
 
 ## Step 2. Training
+
+In this section, we will start training the network using the command line:
+```
+!./darknet detector train data/obj.data cfg/yolo-obj.cfg yolov4.conv.137 -dont_show
+```
+  - file `yolo-obj_last.weights` will be saved to the backup folder for each 100 iterations
+  - file `yolo-obj_xxxx.weights` will be saved to the backup folder for each 1000 iterations
+  
+It is also possible to stop the training at a point (for example after 2000 iterations) and start again later from it:
+```
+!./darknet detector train data/obj.data cfg/yolo-obj.cfg /my_drive/backup/yolo-obj_last.weights -dont_show
+```
+## Step 3. Detection
+
+When the training is complete, we will perform object detection on the videos and save the results on the Drive:
+
+```
+print("detecting...")
+!./darknet detector demo data/obj.data cfg/yolo-obj.cfg /my_drive/backup/yolo-obj_xxxx.weights -dont_show /my_drive/test_videos/name_video -thresh .7 -i 0 -out_filename prediction.avi
+print("save prediction in Drive...")
+!cp prediction.avi /my_drive/predictions/name_prediction
+```
+
 
 
 
