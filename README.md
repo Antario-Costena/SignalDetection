@@ -22,7 +22,7 @@ Now we will proceed to clone the [repository](https://github.com/AlexeyAB/darkne
 
 The next step is the compile.
 ```
-!git clone https://github.com/AlexeyAB/darknet
+!it clone https://github.com/AlexeyAB/darknet
 %cd darknet
 print("activating OPENCV...")
 !sed -i 's/OPENCV=0/OPENCV=1/' Makefile
@@ -41,7 +41,6 @@ print("activating CUDNN_HALF...")
 
 print("making...")
 !make
-
 ```
 To proceed we will load the dataset in order to use it for training.
 
@@ -49,13 +48,11 @@ The idea is to insert in a folder called [obj](https://drive.google.com/drive/fo
 ```
 print("loading dataset...)
 !cp /my_drive/dataset_folder/obj.zip ../
-
 ```
 And now we can unzip it.
 ```
 print("unziping dataset...")
 !unzip ../obj.zip -d data/obj.zip ../
-
 ```
 It is important to also load the main **yolo-obj.cfg** configuration file, which will contain information for the construction of the network, such as the size of the images, the number of classes, filters, any augmentation techniques and more.
 The file is located in the folder [configuration_files](https://drive.google.com/drive/folders/1am7pzlCU4InMfw1gq9Rasv_S0si_wTuQ).
@@ -81,7 +78,6 @@ Darknet needs two more files:
   class 3
   class 4
   ...
-
   ```
 2. **obj.data**, which contain information about training and number of classes.
   
@@ -91,8 +87,43 @@ Darknet needs two more files:
   valid = path_to/test.txt
   names = path_to/obj.names
   backup = path_to/backup_folder
-
   ```
+For loading configuration files:
+
+```
+print("loading yolo-obj.cfg...")
+!cp /my_drive/configuration_files/yolo-obj.cfg ./cfg
+print("loading yolo-obj.names..")
+!cp /my_drive/configuration_files/yolo-obj.names ./data
+print("loading yolo-obj.data..")
+!cp /my_drive/configuration_files/yolo-obj.data ./data
+```
+Darknet needs a *.txt file* for training which contains filenames of all images, each filename in new line, with path relative, for example containing:
+```
+data/obj/img1.jpg
+data/obj/img2.jpg
+data/obj/img3.jpg
+...
+```
+Regarding this, we have defined a Python script that does it: [generate_train.py](https://drive.google.com/file/d/18_EIV33LjGrhrBj1HcoSrKxZbYAil-5z/view)
+It is sufficient, therefore, to load it inside the current folder and execute it, as shown below:
+```
+print("loading script...")
+!cp /my_drive/py_scripts/generate_train.py ./
+print("performing script..")
+!python generate_train.py
+```
+For training, you need to download the pre trained weights (**yolov4.conv.137**) are used to speed up the workout. The approach is to use pre-trained layers to build a different network which may have similarities in the first layers.
+This file must be uploaded to the [backup](https://drive.google.com/drive/folders/1x5fjHc3ngHuQpX9UIx7jDftEnzZhTLFZ) folder.
+```
+print("loading pre_trained weights...")
+!cp /my_drive/backup/yolov4.conv.137 ./
+```
+Once the configuration phase is complete, it is possible to lead to the training phase.
+
+## Step 2. Training
+
+
 
 
 
