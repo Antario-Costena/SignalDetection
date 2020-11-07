@@ -135,6 +135,14 @@ It is also possible to stop the training at a point (for example after 2000 iter
 ```
 !./darknet detector train data/obj.data cfg/yolo-obj.cfg /my_drive/backup/yolo-obj_last.weights -dont_show
 ```
+You can save the graph in the Drive (in the folder [charts](https://github.com/Antario-Costena/SignalDetection/tree/Project/charts)); set the range of iterations made.
+```
+chart_name = "mAP-chart_iter:{}-{}.png".format(initial_iteration_number, final_iteration_number)
+
+print("saving chart...")
+
+!cp chart.png /my_drive/charts/$chart_name
+```
 ## `Step 3. Detection`
 
 When the training is complete, we will perform object detection on the videos and save the results on the Drive:
