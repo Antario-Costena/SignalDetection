@@ -145,4 +145,4 @@ print("detecting...")
 print("save prediction in Drive...")
 !cp prediction.avi /my_drive/predictions/name_prediction
 ```
-All the code is available in the jupyter notebook **YOLODarknet_code.ipynb**.
+All the code is available in the jupyter notebook [YOLODarknet_code.ipynb](https://github.com/Antario-Costena/SignalDetection/blob/Project/py_scripts/YOLODarknet_code.ipynb)
