@@ -10,7 +10,7 @@ In this section we will proceed to configure our Darknet network.
 We will proceed to mount Google Drive on the Colab session.
 ```
 from google.colab import drive
-print("mounting DRIVE...")
+print("**mounting DRIVE...**")
 drive.mount('/content/gdrive')
 !ln -s /content/gdrive/My\ Drive/root_folder/my_drive
 ```
