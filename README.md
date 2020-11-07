@@ -43,8 +43,22 @@ print("making...")
 !make
 
 ```
+To proceed we will load the dataset in order to use it for training.
 
+The idea is to insert in a folder called [obj](https://drive.google.com/drive/folders/1ZY3pJzgI33PpNdYZf1PQI1k_dgzRnprW) all the *images .jpg* with the relative *files.txt* and then compress the folder.
+```
+print("loading dataset...)
+!cp /my_drive/dataset_folder/obj.zip ../
 
+```
+And now we can unzip it.
+```
+print("unziping dataset...")
+!unzip ../obj.zip -d data/obj.zip ../
+
+```
+It is important to also load the main **yolo-obj.cfg** configuration file, which will contain information for the construction of the network, such as the size of the images, the number of classes, filters, any augmentation techniques and more.
+The file is located in the folder [configuration_files](https://drive.google.com/drive/folders/1am7pzlCU4InMfw1gq9Rasv_S0si_wTuQ).
 
 
 
