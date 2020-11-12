@@ -174,7 +174,8 @@ print("saving chart...")
 
 When the training is complete, we will perform object detection on the videos and save the results on the Drive:
   - increase network-resolution by set in your `.cfg`-file `height=608` and `width=608`
-  - change in obj.data file, from valid = path_to/valid.txt to valid = path_to/test.txt
+  - change in obj.data file, from `valid = path_to/valid.txt` to `valid = path_to/test.txt`
+
 Run the following command lines:
 ```
 print("detecting...")
