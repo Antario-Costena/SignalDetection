@@ -110,11 +110,13 @@ Specifically, we decided to split the dataset in:
   - 80% `training set`
   - 10% `validation set`
   - 10% `test set`
+
 We have defined a Python script that does it: [generate_train.py](https://github.com/Antario-Costena/SignalDetection/blob/Project/py_scripts/generate_train.py).
-Then, 3 .txt files are generated and saved on the Drive in the [dataset_preparation](https://github.com/Antario-Costena/SignalDetection/tree/Project/dataset_preparation) folder:
+Then, 3 *.txt files* are generated and saved on the Drive in the [dataset_preparation](https://github.com/Antario-Costena/SignalDetection/tree/Project/dataset_preparation) folder:
   - `train.txt`
   - `valid.txt`
   - `test.txt`
+
 Darknet offers the possibility to stop training at one point and resume it at a second moment:
   - if you start the training for the first time you need to save the txt files on the Drive in the specified folder.
   - if training is resumed from the point of interruption, the previously saved files must be loaded (to keep the dataset split unaltered)
