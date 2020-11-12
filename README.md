@@ -99,20 +99,45 @@ print("loading yolo-obj.names..")
 print("loading yolo-obj.data..")
 !cp /my_drive/configuration_files/yolo-obj.data ./data
 ```
-Darknet needs a *.txt file* for training which contains filenames of all images, each filename in new line, with path relative, for example containing:
+Darknet needs a *.txt files* for training which contains filenames of all images, each filename in new line, with path relative, for example containing:
 ```
 data/obj/img1.jpg
 data/obj/img2.jpg
 data/obj/img3.jpg
 ...
 ```
-Regarding this, we have defined a Python script that does it: [generate_train.py](https://github.com/Antario-Costena/SignalDetection/blob/Project/py_scripts/generate_train.py).
-It is sufficient, therefore, to load it inside the current folder and execute it, as shown below:
+Specifically, we decided to split the dataset in:
+  - 80% `training set`
+  - 10% `validation set`
+  - 10% `test set`
+We have defined a Python script that does it: [generate_train.py](https://github.com/Antario-Costena/SignalDetection/blob/Project/py_scripts/generate_train.py).
+Then, 3 .txt files are generated and saved on the Drive in the [dataset_preparation](https://github.com/Antario-Costena/SignalDetection/tree/Project/dataset_preparation) folder:
+  - `train.txt`
+  - `valid.txt`
+  - `test.txt`
+Darknet offers the possibility to stop training at one point and resume it at a second moment:
+  - if you start the training for the first time you need to save the txt files on the Drive in the specified folder.
+  - if training is resumed from the point of interruption, the previously saved files must be loaded (to keep the dataset split unaltered)
+  
+START TRAINING FROM BEGINNING:
 ```
 print("loading script...")
 !cp /my_drive/py_scripts/generate_train.py ./
 print("performing script..")
 !python generate_train.py
+print("copying .txt in Drive..")
+!cp ./data/train.txt /my_drive/dataset_preparation/
+!cp ./data/test.txt /my_drive/dataset_preparation/
+!cp ./data/valid.txt /my_drive/dataset_preparation/
+```
+RESUME TRAINING:
+```
+print("loading train.txt...")
+!cp /my_drive/dataset_preparation/train.txt ./data
+print("loading test.txt...")
+!cp /my_drive/dataset_preparation/test.txt ./data
+print("loading valid.txt...")
+!cp /my_drive/dataset_preparation/valid.txt ./data
 ```
 For training, you need to download the pre trained weights ([yolov4.conv.137](https://github.com/AlexeyAB/darknet/releases/download/darknet_yolo_v3_optimal/yolov4.conv.137)) are used to speed up the workout. The approach is to use pre-trained layers to build a different network which may have similarities in the first layers.
 This file must be uploaded to the [backup](https://github.com/Antario-Costena/SignalDetection/tree/Project/backup) folder.
@@ -146,7 +171,9 @@ print("saving chart...")
 ## `Step 3. Detection`
 
 When the training is complete, we will perform object detection on the videos and save the results on the Drive:
-
+  - increase network-resolution by set in your `.cfg`-file `height=608` and `width=608`
+  - change in obj.data file, from valid = path_to/valid.txt to valid = path_to/test.txt
+Run the following command lines:
 ```
 print("detecting...")
 !./darknet detector demo data/obj.data cfg/yolo-obj.cfg /my_drive/backup/yolo-obj_xxxx.weights -dont_show /my_drive/test_videos/name_video -thresh .7 -i 0 -out_filename prediction.avi
